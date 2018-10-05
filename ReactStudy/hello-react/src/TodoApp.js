@@ -7,6 +7,7 @@ class TodoApp extends React.Component {
       this.state = { items: [], text: '' };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleRemove = this.handleRemove.bind(this);
     }
     
     handleChange(e) {
@@ -26,6 +27,11 @@ class TodoApp extends React.Component {
         text: ''
       }));
     }
+    handleRemove(id) {
+      const {items, text} = this.state;
+      this.setState({items : items.filter(item => item.id !== id)} )
+      console.log(id + " : removed " + items.length);      
+    }
     
     render() {
       return (
@@ -44,7 +50,10 @@ class TodoApp extends React.Component {
               Add #{this.state.items.length + 1}
             </button>
           </form>
-          <TodoList items={this.state.items} />
+          <TodoList 
+            items={this.state.items} 
+            onRemoved={this.handleRemove}
+          />
         </div>
       );
     }
