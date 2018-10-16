@@ -1,6 +1,5 @@
 //client/components/App.js
 import React, { Component } from 'react';
-import { hot } from 'react-hot-loader'
 import '../css/App.css';
 import {Button} from 'react-bootstrap';
 import Modal from 'react-modal';
@@ -27,7 +26,7 @@ class App extends Component {
   insertNewExpense(e) {
     axios.post('/insert',
       querystring.stringify({
-        desc: "test",
+        desc: "aaa",
         amount: e.state.amount,
         month: e.state.month,
         year: e.state.year
@@ -55,4 +54,4 @@ class App extends Component {
     );
   }
 }
-export default hot(module)(App)
+export default App

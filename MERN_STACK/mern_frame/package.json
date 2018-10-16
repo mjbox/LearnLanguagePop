@@ -15,8 +15,6 @@
     "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
-    "eslint": "^5.7.0",
-    "eslint-plugin-react": "^7.11.1",
     "express": "^4.16.4",
     "mongoose": "^5.3.3",
     "nodemon": "^1.18.4",
@@ -35,9 +33,7 @@
     "start": "nodemon --ignore client/bundle.js --exec 'npm run build && babel-node bin/www'",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "test": "nodemon --ignore client/bundle.js --exec 'npm run dev && babel-node bin/www'",
-    "eject": "react-scripts eject",
-    "client": "webpack-dev-server --hot --mode development --devtool inline-source-map"
+    "test": "nodemon --ignore client/bundle.js --exec 'npm run dev && babel-node bin/www'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -47,11 +43,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "devDependencies": {
-    "react-hot-loader": "^4.3.11"
-  },
-  "resolutions": {
-    "babel-core": "7.0.0-bridge.0"
-  }
+  ]
 }
