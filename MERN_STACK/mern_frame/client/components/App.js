@@ -27,7 +27,7 @@ class App extends Component {
   insertNewExpense(e) {
     axios.post('/insert',
       querystring.stringify({
-        desc: "aa",
+        desc: "test",
         amount: e.state.amount,
         month: e.state.month,
         year: e.state.year

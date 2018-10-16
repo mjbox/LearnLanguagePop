@@ -32,10 +32,10 @@
   },
   "scripts": {
     "webpack": "webpack",
-    "start": "npm run webpack --hot && nodemon --exec babel-node -- bin/www && webpack-dev-server --hot",
+    "start": "nodemon --ignore client/bundle.js --exec 'npm run build && babel-node bin/www'",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "test": "react-scripts test",
+    "test": "nodemon --ignore client/bundle.js --exec 'npm run dev && babel-node bin/www'",
     "eject": "react-scripts eject",
     "client": "webpack-dev-server --hot --mode development --devtool inline-source-map"
   },
