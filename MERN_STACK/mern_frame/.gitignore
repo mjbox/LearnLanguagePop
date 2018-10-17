@@ -9,6 +9,9 @@
 # production
 /build
 
+# generated bundle.js
+/client/bundle.js
+
 # misc
 .DS_Store
 .env.local
