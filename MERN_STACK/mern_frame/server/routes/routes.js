@@ -2,7 +2,8 @@
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
-var Expense = require('.././models/Expense');
+var Expense = require('../models/Expense');
+var dbLauncher = require('../models/dbLauncher');
 
 router.get('/', function(req, res){
   res.render('index')
@@ -10,20 +11,34 @@ router.get('/', function(req, res){
 
 router.route('/insert')
 .post(function(req,res) {
-  console.log(req.body.desc + " test");
-  res.send('Expense successfully added!');
-  /*
-  var expense = new Expense();
-  expense.description = req.body.desc;
-  expense.amount = req.body.amount;
-  expense.month = req.body.month;
-  expense.year = req.body.year;
-  expense.save(function(err) {
-      if (err)
+  console.log(req.body.name + " test");
+  var myobj = { name: req.body.name, author: req.body.author };
+  dbLauncher.collection("books").insertOne(myobj, function(err, ires) {
+    var result = "Expense successfully added!";
+      if (err){
+        result = err;
         res.send(err);
-      res.send('Expense successfully added!');
+      }
+      console.log(result);
+      res.send(result);
   });
-  */
 })
-
+router.route('/read')
+.post(function(req,res) {
+  var result = "";
+  dbLauncher.collection('books').find().stream()
+    .on('data', function(doc){
+      result = result.concat(doc.name);
+      console.log(doc.name);
+    })
+    .on('error', function(err){
+      // handle error
+    })
+    .on('end', function(){
+      // final callback
+      console.log("async end");
+      res.send("Expense successfully showed! : " + result);
+    });
+  console.log("sync end");
+})
 module.exports = router;
