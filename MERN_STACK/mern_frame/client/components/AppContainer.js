@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import Menu from './Pages/Menu';
 import Home from './Pages/Home';
 import About from './Pages/About';
-import YoutubeC from './Pages/YoutubeC';
+import ContentView from './Pages/ContentView';
 
 class AppContainer extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class AppContainer extends Component {
         <Menu />
         <Route exact path="/" component={Home}/>
         <Route exact path="/about" component={About}/>
-        <Route exact path="/Youtube/:name" component={YoutubeC}/>
+        <Route exact path="/Youtube/:name" component={ContentView}/>
       </div>
     );
   }

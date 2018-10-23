@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import axios from 'axios';
+import ScriptList from './ScriptList';
 
 var querystring = require('querystring');
 
-class YoutubeC extends Component {
+class ContentView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      player : null
+      player : null,
+      list : null
     };
     window.onYouTubeIframeAPIReady = this.onLoadedYTScript.bind(this);
     window.onPlayerReady = this.onPlayerReady.bind(this);
@@ -48,6 +50,9 @@ class YoutubeC extends Component {
         }).then(function(response) {
             var txt = response.data;
             console.log(txt);
+            _this.setState({
+              list: txt.script
+            });
         });
 }
   onPlayerReady(event) {
@@ -79,8 +84,9 @@ class YoutubeC extends Component {
     return (
       <div>
         <div id='player'></div>
+        <ScriptList list={this.state.list}></ScriptList>
       </div>
     );
   }
 }
-export default YoutubeC
+export default ContentView
