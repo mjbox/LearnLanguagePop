@@ -22,7 +22,6 @@ class dbProcess {
                 this.getScript(req.body.param, res);
                 break;
         }
-        
     }
     getContentsHeader(res) {
         var result = [];
