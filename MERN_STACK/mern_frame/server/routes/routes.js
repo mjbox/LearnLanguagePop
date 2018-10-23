@@ -3,12 +3,12 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var Expense = require('../models/Expense');
-var dbLauncher = require('../models/dbLauncher');
+var dbProcess = require('../models/dbProcess');
 
 router.get('/', function(req, res){
   res.render('index')
 });
-
+/*
 router.route('/insert')
 .post(function(req,res) {
   console.log(req.body.name + " test");
@@ -23,22 +23,9 @@ router.route('/insert')
       res.send(result);
   });
 })
-router.route('/read')
+*/
+router.route('/getdb')
 .post(function(req,res) {
-  var result = "";
-  dbLauncher.collection('books').find().stream()
-    .on('data', function(doc){
-      result = result.concat(doc.name);
-      console.log(doc.name);
-    })
-    .on('error', function(err){
-      // handle error
-    })
-    .on('end', function(){
-      // final callback
-      console.log("async end");
-      res.send("Expense successfully showed! : " + result);
-    });
-  console.log("sync end");
+  dbProcess.get(req, res);
 })
 module.exports = router;

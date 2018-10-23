@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
-import queryString from 'query-string';
+import axios from 'axios';
+
+var querystring = require('querystring');
 
 class YoutubeC extends Component {
   constructor(props) {
@@ -14,10 +16,11 @@ class YoutubeC extends Component {
   }
   
   onLoadedYTScript() {
+    var id = this.props.match.params.name;
     var player = new window.YT.Player('player', {
       height: '360',
       width: '640',
-      videoId: 'M7lc1UVf-VE',
+      videoId: id,
       events: {
           'onReady': window.onPlayerReady,
           'onStateChange': window.onPlayerStateChange
@@ -26,11 +29,27 @@ class YoutubeC extends Component {
         'controls': 0,
       }
     });
+    this.getScript(id);
     this.setState({
       player: player
     });
     console.log("onLoadedYTScript ");
   }
+  getScript(id) {
+    var _this = this;
+    axios.post('/getdb',
+        querystring.stringify({
+            cmd: "getScript",
+            param: id
+        }), {
+            headers: { 
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        }).then(function(response) {
+            var txt = response.data;
+            console.log(txt);
+        });
+}
   onPlayerReady(event) {
   }
   onPlayerStateChange(event) {

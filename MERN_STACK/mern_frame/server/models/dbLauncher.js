@@ -1,7 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/mongodb_tutorial');
+mongoose.connect('mongodb://localhost:27017/YoutubeContents');
 var db = mongoose.connection;
 db.on('error', function(){
     console.log('Connection Failed!');
