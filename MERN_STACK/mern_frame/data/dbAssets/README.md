@@ -1,25 +1,36 @@
-To use this project, you should follow this guide.
+##To use this project, you should follow this guide.
 "reference page"
 https://velopert.com/436
 
 1. install mongodb
 
 - "install mongodb"
+
 sudo brew install mongodb
+
+
 - "create directory for db folder"
+
 sudo mkdir /data/db
 
+
 - "start mongodb server"
+
 sudo mongod
 
+
 2. go to right folder first
+
 cd ./MERN_STACK
 
+
 3. import db into your local mongodb server
+
 mongoimport --jsonArray  -d YoutubeContents -c scripts ./mern_frame/data/dbAssets/scripts.json
 mongoimport --jsonArray  -d YoutubeContents -c videos ./mern_frame/data/dbAssets/videos.json
 
 done.
+
 
 ## manually start mongo and create db
 - "start mongo"
