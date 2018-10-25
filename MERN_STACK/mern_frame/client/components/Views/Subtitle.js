@@ -1,18 +1,35 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import axios from 'axios';
-
 var querystring = require('querystring');
 
-class Script extends Component {
+class SubTitle extends Component {
     constructor(props) {
         super(props);
+        this.focus = this.focus.bind(this);
         this.makeList = this.makeList.bind(this);
-        this.onclick = this.onclick.bind(this);
+        this.onClickOpen = this.onClickOpen.bind(this);
+        this.onClickScript = this.onClickScript.bind(this);
         this.state = {
             list: this.props.list,
             index: 0,
+            onEvent : this.props.onEvent,
+            time : this.props.time,
+            style: "item"
         }
+    }
+    focus(onOff) {
+        if(onOff) {
+            this.setState({
+                style: "item active"
+            })
+        }
+        else {
+            this.setState({
+                style: "item"
+            })
+        }
+        return this.props.time;
     }
     makeList() {
         var listItems = null;
@@ -33,24 +50,27 @@ class Script extends Component {
     }
     componentDidMount() {
     }
-    onclick(e) {
+    onClickOpen(e) {
         var index = this.state.index + 1;
         this.makeList();
         this.setState({index: index});
     }
-    onclick2(e) {
-        
+    onClickScript(e) {
+        var onEvent = this.state.onEvent;
+        if(onEvent !== null) {
+            onEvent(this.props.time);
+        }
     }
     render() {
         return (
-            <div dt={this.state.index}>
-                <a onClick={this.onclick2}>
+            <li className={this.state.style} dt={this.state.index}>
+                <a className={this.state.style} onClick={this.onClickScript}>
                     {this.props.time + " "}
                     {this.makeList()}
                 </a>
-                <button onClick={this.onclick}>click</button>
-            </div>
+                <button onClick={this.onClickOpen}>click</button>
+            </li>
         );
     }
 }
-export default Script
+export default SubTitle

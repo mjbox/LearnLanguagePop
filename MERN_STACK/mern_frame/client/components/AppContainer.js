@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
-import Menu from './Pages/Menu';
-import Home from './Pages/Home';
-import About from './Pages/About';
-import ContentView from './Pages/ContentView';
+import Menu from './Views/Menu';
+import Home from './Views/Home';
+import About from './Views/About';
+import ContentView from './Views/ContentView';
 
 class AppContainer extends Component {
   constructor(props) {
