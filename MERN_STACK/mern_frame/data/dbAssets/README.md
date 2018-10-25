@@ -1,42 +1,28 @@
-##To use this project, you should follow this guide.
+
+## To use this project, you should follow this guide.
 "reference page"
 https://velopert.com/436
 
-1. install mongodb
+## How to set up db
+- install mongodb
+  - sudo brew install mongodb
+  - sudo mkdir /data/db
+  - sudo mongod
 
-- "install mongodb"
+- go to right folder first
+  - cd ./MERN_STACK
 
-sudo brew install mongodb
-
-
-- "create directory for db folder"
-
-sudo mkdir /data/db
-
-
-- "start mongodb server"
-
-sudo mongod
-
-
-2. go to right folder first
-
-cd ./MERN_STACK
-
-
-3. import db into your local mongodb server
-
-mongoimport --jsonArray  -d YoutubeContents -c scripts ./mern_frame/data/dbAssets/scripts.json
-mongoimport --jsonArray  -d YoutubeContents -c videos ./mern_frame/data/dbAssets/videos.json
+- import db into your local mongodb server
+  - mongoimport --jsonArray  -d YoutubeContents -c scripts ./mern_frame/data/dbAssets/scripts.json
+  - mongoimport --jsonArray  -d YoutubeContents -c videos ./mern_frame/data/dbAssets/videos.json
 
 done.
 
-
 ## manually start mongo and create db
 - "start mongo"
-sudo mongo
+  - sudo mongo
 - "use and create collector"
-use YoutubeContents
+  - use YoutubeContents
 ## insert values
 - db.scripts.insert({{"videoid" : "M7lc1UVf-VE", "script" :
         [
