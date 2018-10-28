@@ -16,5 +16,19 @@
             {"time": 20, "text":["aaa", "bbb", "ccc"]},
             {"time": 60, "text":["txt1", "txt2", "txt3"]}
         ]
+    },
+    {"videoid" : "9Cvw6iRQ95o", "script" :
+        [
+            {"time": 19, "text":["Such a feelin's", "comin' over me"]},
+            {"time": 24, "text":["There is", "wonder in", "most everything", "I see"]},
+            {"time": 29, "text":["Not a cloud", "in the sky,", "got the sun", "in my eyes"]},
+            {"time": 34, "text":["And I", "won't be surprised", "if it's a dream"]},
+            {"time": 39, "text":["Everything", "I want", "the world to be"]},
+            {"time": 44, "text":["is now", "comin' true", "especially for me"]},
+            {"time": 49, "text":["And the reason is clear", "it's because", "you are here"]},
+            {"time": 54, "text":["You're the nearest thing", "to heaven that I've seen"]},
+            {"time": 59, "text":["I'm on the top of the world", "lookin' down on creation"]},
+            {"time": 64, "text":["And the only", "explanation", "I can find"]}
+        ]
     }
 ]
