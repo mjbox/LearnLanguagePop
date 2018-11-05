@@ -28,6 +28,7 @@ class VideoManager {
             },
             playerVars: { 
               'controls': 0,
+              'rel': 0 
             }
           });
     }

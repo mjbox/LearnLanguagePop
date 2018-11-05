@@ -84,7 +84,7 @@ class SubTitle extends Component {
         return (
             <li className={this.state.style} index={this.state.index}  align="left" >
                 <span>{this.props.time + "  "}</span>
-                <input type='checkbox' onClick={this.onClickCheckbox} checked={this.state.checked}></input>
+                <input type='checkbox' onChange={this.onClickCheckbox} checked={this.state.checked}></input>
                 <span> </span>
                 <a className={this.state.style} onClick={this.onClickScript}>
                     {this.makeList()}

@@ -4,12 +4,13 @@ class ControlMenu extends Component {
     constructor(props) {
         super(props);
         this.onclick = this.onclick.bind(this);
-
+        this.speed = [0.7, 1.0, 1.5, 2.0];
+        this.speedIndex = 1;
         this.state = {
             check: "Check All",
             show: "Show All",
             language: "English",
-            speed: 1.0,
+            rate: 1.0,
             repeat: "None"
         }
     }
@@ -38,9 +39,10 @@ class ControlMenu extends Component {
                 result.state = {language:result.param.param1};
             break;
             case "speed":
-                var speed = this.state.speed >= 2 ? 0.5 : this.state.speed + 0.5;
-                result.param = {cmd:cmd, param1:speed, param2:speed};
-                result.state = {speed:result.param.param1};
+                this.speedIndex = (this.speedIndex+1) % this.speed.length;
+                var rate = this.speed[this.speedIndex];
+                result.param = {cmd:cmd, param1:rate, param2:rate};
+                result.state = {rate:rate};
             break;
             case "repeat":
                 switch(this.state.repeat) {
@@ -61,7 +63,7 @@ class ControlMenu extends Component {
                 <button cmd="check"     onClick={this.onclick}>{this.state.check}</button>
                 <button cmd="show"      onClick={this.onclick}>{this.state.show}</button>
                 <button cmd="language"  onClick={this.onclick}>{this.state.language}</button>
-                <button cmd="speed"     onClick={this.onclick}>{this.state.speed+" Fast"}</button>
+                <button cmd="speed"     onClick={this.onclick}>{this.state.rate+" Fast"}</button>
                 <button cmd="repeat"    onClick={this.onclick}>{this.state.repeat+" Repeat"}</button>
             </div>
         );

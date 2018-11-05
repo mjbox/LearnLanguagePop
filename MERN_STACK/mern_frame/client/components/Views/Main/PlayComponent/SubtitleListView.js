@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SubTitle from './SubTitle'
 
-class SubtitleList extends Component {
+class SubtitleListView extends Component {
     constructor(props) {
         super(props);
         this.makeList = this.makeList.bind(this);
@@ -78,4 +78,4 @@ class SubtitleList extends Component {
     }
 }
 
-export default SubtitleList;
+export default SubtitleListView;

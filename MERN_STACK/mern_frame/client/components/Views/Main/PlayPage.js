@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import SubtitleList from './SubtitleList';
+import SubtitleListView from './PlayComponent/SubtitleListView';
 import dbManager from '../../Controls/dbManager';
 import VideoManager from '../../Controls/VideoManager';
-import ControlMenu from './ControlMenu';
+import ControlMenu from './PlayComponent/ControlMenu';
 
 var querystring = require('querystring');
 
-class ContentView extends Component {
+class PlayPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,11 +27,8 @@ class ContentView extends Component {
   
   onLoadedYTScript() {
     var id = this.props.match.params.name;
-    this.setState({
-      player : VideoManager.create(id, 'player', this.onPlayerReady, this.onPlayerStateChange)
-    });
+    this.state.player = VideoManager.create(id, 'player', this.onPlayerReady, this.onPlayerStateChange);
     dbManager.getdb("getScript", id, this.dbListener);
-    console.log("onLoadedYTScript ");
   }
   dbListener(req, res) {
     if(res !== null) {
@@ -102,17 +99,20 @@ class ContentView extends Component {
         else 
           this.setState({list: this.state.list_kor});
         break;
+      case "speed":
+        this.state.player.setPlaybackRate(e.param2);
+        break;
     }
   }
 
   render() {
     return (
       <div>
-        <div id='player'/>
-        <SubtitleList ref={this.ScriptList} onEvent={this.onEventScript} list={this.state.list}/>
+        <div id='player'></div>
+        <SubtitleListView ref={this.ScriptList} onEvent={this.onEventScript} list={this.state.list}/>
         <ControlMenu cb={this.onEventControl}/>
       </div>
     );
   }
 }
-export default ContentView
+export default PlayPage
