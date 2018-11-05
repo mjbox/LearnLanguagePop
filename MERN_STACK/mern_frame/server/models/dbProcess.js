@@ -45,7 +45,7 @@ class dbProcess {
         console.log(id);
         dbLauncher.collection('scripts').find({'videoid':id}).stream()
             .on('data', function(doc){
-                result = {"script":doc.script};
+                result = {"script":doc.script, "script_kor":doc.script_kor};
                 console.log("data");
             })
             .on('error', function(err){

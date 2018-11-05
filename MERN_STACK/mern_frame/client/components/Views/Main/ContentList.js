@@ -11,7 +11,7 @@ class ContentList extends Component {
     }
     makeList() {
         const listItems = this.props.list !== null ? this.props.list.map((link) =>
-            <li>
+            <li key={link.id} align="left" >
                 <Link to={"/Youtube/"+link.id} >
                     <img src={"http://img.youtube.com/vi/"+link.id+"/default.jpg"}/>
                     Youtube 

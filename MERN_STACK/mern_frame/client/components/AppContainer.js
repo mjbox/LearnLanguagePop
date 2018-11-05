@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
-import Menu from './Views/Menu';
-import Home from './Views/Home';
-import About from './Views/About';
-import ContentView from './Views/ContentView';
+import Menu from './Views/Menu/Menu';
+import Home from './Views/Main/Home';
+import About from './Views/Main/About';
+import CreateView from './Views/Main/CreateView';
+import ContentView from './Views/Main/ContentView';
 
 class AppContainer extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class AppContainer extends Component {
         <Menu />
         <Route exact path="/" component={Home}/>
         <Route exact path="/about" component={About}/>
+        <Route exact path="/CreateView" component={CreateView}/>
         <Route exact path="/Youtube/:name" component={ContentView}/>
       </div>
     );
