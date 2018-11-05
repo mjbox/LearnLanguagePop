@@ -12,6 +12,7 @@ class SubtitleList extends Component {
         }
         this.eventListener = this.eventListener.bind(this);
         this.onFocus = this.onFocus.bind(this);
+        this.onCheckAll = this.onCheckAll.bind(this);
     }
     eventListener(time) {
         this.onFocus(time);
@@ -30,7 +31,7 @@ class SubtitleList extends Component {
             );
 
             listItems = this.props.list.map((script) =>
-                    <SubTitle ref={this.state.ref[script.time]} onEvent={this.eventListener} time={script.time} list={script.text}/>
+                    <SubTitle key={script.time} ref={this.state.ref[script.time]} onEvent={this.eventListener} time={script.time} list={script.text}/>
             );
         }
         return listItems;
@@ -51,6 +52,20 @@ class SubtitleList extends Component {
             this.state.ref[find].current.focus(true);
             this.state.index = find;
         }
+    }
+    onCheckAll(isShow) {
+        var _this = this;
+        Object.keys(_this.state.ref).map(function(objectKey, index) {
+            var value = _this.state.ref[objectKey];
+            value.current.setCheckbox(isShow);
+        });
+    }
+    onShowAll(isShow) {
+        var _this = this;
+        Object.keys(_this.state.ref).map(function(objectKey, index) {
+            var value = _this.state.ref[objectKey];
+            value.current.setShowAll(isShow);
+        });
     }
     render() {
         return (

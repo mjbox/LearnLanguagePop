@@ -8,14 +8,19 @@ class SubTitle extends Component {
         super(props);
         this.focus = this.focus.bind(this);
         this.makeList = this.makeList.bind(this);
+        this.openScript = this.openScript.bind(this);
         this.onClickOpen = this.onClickOpen.bind(this);
         this.onClickScript = this.onClickScript.bind(this);
+        this.setCheckbox = this.setCheckbox.bind(this);
+        this.setShowAll = this.setShowAll.bind(this);
+        this.onClickCheckbox = this.onClickCheckbox.bind(this);
         this.state = {
             list: this.props.list,
             index: 0,
             onEvent : this.props.onEvent,
             time : this.props.time,
-            style: "item"
+            style: "item",
+            checked: false
         }
     }
     focus(onOff) {
@@ -40,7 +45,7 @@ class SubTitle extends Component {
                 var txt = i < _this.state.index ? text : "...";
                 i = i + 1;
                 return (
-                    <span>
+                    <span key={i}>
                         {txt + " "}
                     </span>
                 );
@@ -50,22 +55,38 @@ class SubTitle extends Component {
     }
     componentDidMount() {
     }
-    onClickOpen(e) {
-        var index = this.state.index + 1;
+    openScript(index) {
         this.makeList();
         this.setState({index: index});
     }
+    onClickOpen(e) {
+        this.openScript(this.state.index + 1);
+    }
     onClickScript(e) {
-        var onEvent = this.state.onEvent;
+        const onEvent = this.state.onEvent;
         if(onEvent !== null) {
             onEvent(this.props.time);
         }
     }
+    setCheckbox(value) {
+        this.setState(
+            {checked:value}
+        );
+    }
+    setShowAll(value) {
+        const index = value ? this.state.list.length : 0;
+        this.openScript(index);
+    }
+    onClickCheckbox(e) {
+        this.setCheckbox(!this.state.checked);
+    }
     render() {
         return (
-            <li className={this.state.style} dt={this.state.index}>
+            <li className={this.state.style} index={this.state.index}  align="left" >
+                <span>{this.props.time + "  "}</span>
+                <input type='checkbox' onClick={this.onClickCheckbox} checked={this.state.checked}></input>
+                <span> </span>
                 <a className={this.state.style} onClick={this.onClickScript}>
-                    {this.props.time + " "}
                     {this.makeList()}
                 </a>
                 <button onClick={this.onClickOpen}>click</button>

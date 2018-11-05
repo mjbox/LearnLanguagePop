@@ -1,0 +1,27 @@
+{
+  "name": "serverside_video_analysis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec 'npm test'",
+    "build": "node index.js",
+    "dev": "node index.js",
+    "test": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.0.16",
+    "ffmpeg": "0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "nodemon": "^1.18.5",
+    "optimist": "^0.6.1",
+    "plotly": "^1.0.6",
+    "web-audio-api": "^0.2.2",
+    "youtube-dl": "^1.12.2"
+  }
+}

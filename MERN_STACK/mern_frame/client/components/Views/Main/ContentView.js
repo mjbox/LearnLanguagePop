@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import SubtitleList from './SubtitleList';
-import dbManager from '../Controls/dbManager';
-import VideoManager from '../Controls/VideoManager';
+import dbManager from '../../Controls/dbManager';
+import VideoManager from '../../Controls/VideoManager';
+import ControlMenu from './ControlMenu';
 
 var querystring = require('querystring');
 
@@ -10,7 +11,9 @@ class ContentView extends Component {
     super(props);
     this.state = {
       player : null,
-      list : null
+      list : null,
+      list_eng : null,
+      list_kor: null
     };
     this.ScriptList = React.createRef();
     this.onTick = this.onTick.bind(this);
@@ -19,6 +22,7 @@ class ContentView extends Component {
     this.onPlayerReady = this.onPlayerReady.bind(this);
     this.onPlayerStateChange = this.onPlayerStateChange.bind(this);
     this.onEventScript = this.onEventScript.bind(this);
+    this.onEventControl = this.onEventControl.bind(this);
   }
   
   onLoadedYTScript() {
@@ -32,7 +36,9 @@ class ContentView extends Component {
   dbListener(req, res) {
     if(res !== null) {
       this.setState({
-        list: res.script
+        list: res.script,
+        list_eng: res.script,
+        list_kor: res.script_kor
       });
     }
   }
@@ -44,7 +50,8 @@ class ContentView extends Component {
       case -1:  // not yet started
         break;
       case 1: // playing
-        this.timer = setInterval(this.onTick, 1000);
+        clearInterval(this.timer);
+        this.timer = setInterval(this.onTick, 100);
         break;
       case 2: // paused
         clearInterval(this.timer);
@@ -64,7 +71,6 @@ class ContentView extends Component {
     console.log('componentDidMount ' + this.props.match.params.name);
   }
   componentWillUnmount() {
-    // 이벤트, setTimeout, 외부 라이브러리 인스턴스 제거
     console.log("componentWillUnmount");
     clearInterval(this.timer);
     this.state.player.stopVideo();
@@ -84,11 +90,27 @@ class ContentView extends Component {
       clearInterval(this.timer);
     }
   }
+  
+  onEventControl(e) {
+    console.log(e.cmd + " : " + e.param2);
+    switch(e.cmd) {
+      case "check":this.ScriptList.current.onCheckAll(e.param2);break;
+      case "show":this.ScriptList.current.onShowAll(e.param2);break;
+      case "language":
+        if(e.param2 == "English")
+          this.setState({list: this.state.list_eng});
+        else 
+          this.setState({list: this.state.list_kor});
+        break;
+    }
+  }
+
   render() {
     return (
       <div>
-        <div id='player'></div>
-        <SubtitleList ref={this.ScriptList} onEvent={this.onEventScript} list={this.state.list}></SubtitleList>
+        <div id='player'/>
+        <SubtitleList ref={this.ScriptList} onEvent={this.onEventScript} list={this.state.list}/>
+        <ControlMenu cb={this.onEventControl}/>
       </div>
     );
   }

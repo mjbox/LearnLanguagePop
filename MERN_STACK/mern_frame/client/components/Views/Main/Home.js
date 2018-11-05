@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ContentList from './ContentList';
-import dbManager from '../Controls/dbManager';
+import dbManager from '../../Controls/dbManager';
 
 var querystring = require('querystring');
 
