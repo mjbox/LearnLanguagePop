@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ContentList from './ContentList';
+import ContentListView from './HomeComponent/ContentListView';
 import dbManager from '../../Controls/dbManager';
 
 var querystring = require('querystring');
 
-class Home extends Component {
+class HomePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            list : null,
-            contentList : ContentList,
+            list : null
         }
         this.dbListener = this.dbListener.bind(this);
     }
@@ -28,10 +27,10 @@ class Home extends Component {
         return (
             <div>
                 <div id='HomeListTable'>
-                    <ContentList list={this.state.list}></ContentList>
+                    <ContentListView list={this.state.list}></ContentListView>
                 </div>
             </div>
         );
     }
 }
-export default Home;
+export default HomePage;

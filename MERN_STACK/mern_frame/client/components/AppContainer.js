@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
-import Menu from './Views/Menu/Menu';
-import Home from './Views/Main/Home';
-import About from './Views/Main/About';
-import CreateView from './Views/Main/CreateView';
-import ContentView from './Views/Main/ContentView';
+import Menu from './Views/Global/Menu';
+import HomePage from './Views/Main/HomePage';
+import About from './Views/Main/AboutPage';
+import CreatePage from './Views/Main/CreatePage';
+import PlayPage from './Views/Main/PlayPage';
 
 class AppContainer extends Component {
   constructor(props) {
@@ -16,10 +16,10 @@ class AppContainer extends Component {
     return (
       <div>
         <Menu />
-        <Route exact path="/" component={Home}/>
+        <Route exact path="/" component={HomePage}/>
         <Route exact path="/about" component={About}/>
-        <Route exact path="/CreateView" component={CreateView}/>
-        <Route exact path="/Youtube/:name" component={ContentView}/>
+        <Route exact path="/create" component={CreatePage}/>
+        <Route exact path="/play/:name" component={PlayPage}/>
       </div>
     );
   }

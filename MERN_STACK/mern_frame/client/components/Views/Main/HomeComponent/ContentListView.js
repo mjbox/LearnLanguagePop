@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class ContentList extends Component {
+class ContentListView extends Component {
     constructor(props) {
         super(props);
         this.makeList = this.makeList.bind(this);
@@ -12,7 +12,7 @@ class ContentList extends Component {
     makeList() {
         const listItems = this.props.list !== null ? this.props.list.map((link) =>
             <li key={link.id} align="left" >
-                <Link to={"/Youtube/"+link.id} >
+                <Link to={"/play/"+link.id} >
                     <img src={"http://img.youtube.com/vi/"+link.id+"/default.jpg"}/>
                     Youtube 
                     {link.name}
@@ -32,4 +32,4 @@ class ContentList extends Component {
     }
 }
 
-export default ContentList;
+export default ContentListView;
