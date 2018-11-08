@@ -44,20 +44,38 @@
             {"time": 49, "text":["And the reason is clear", "it's because", "you are here"]},
             {"time": 54, "text":["You're the nearest thing", "to heaven that I've seen"]},
             {"time": 59, "text":["I'm on the top of the world", "lookin' down on creation"]},
-            {"time": 64, "text":["And the only", "explanation", "I can find"]}
+            {"time": 64, "text":["And the only", "explanation", "I can find"]},
+            {"time": 69, "text":["Is the love", "that I've found ever", "since you've been around"]},
+            {"time": 74, "text":["Your love's", "put me", "at the top of the world"]},
+            {"time": 85, "text":["Somethin' in the wind", "has learned my name"]},
+            {"time": 90, "text":["And it's tellin' me", "that things are not the same"]},
+            {"time": 95, "text":["In the leaves", "on the trees", "and the touch of the breeze"]},
+            {"time": 100, "text":["There's", "a pleasin' sense of happiness for me"]},
+            {"time": 105, "text":["There is only", "one wish", "on my mind"]},
+            {"time": 110, "text":["When this day is through", "I hope that I will find"]},
+            {"time": 115, "text":["That tomorrow will be just the same for you and me"]}
         ],
         "script_kor": 
         [
-            {"time": 19, "text":["내가 그런 기분을", "느끼고 나니"]},
-            {"time": 24, "text":["내가 보는 모든 것들에 경이로움이 있어요"]},
-            {"time": 29, "text":["Not a cloud", "in the sky,", "got the sun", "in my eyes"]},
-            {"time": 34, "text":["And I", "won't be surprised", "if it's a dream"]},
-            {"time": 39, "text":["Everything", "I want", "the world to be"]},
-            {"time": 44, "text":["is now", "comin' true", "especially for me"]},
-            {"time": 49, "text":["And the reason is clear", "it's because", "you are here"]},
-            {"time": 54, "text":["You're the nearest thing", "to heaven that I've seen"]},
-            {"time": 59, "text":["I'm on the top of the world", "lookin' down on creation"]},
-            {"time": 64, "text":["And the only", "explanation", "I can find"]}
+            {"time": 19, "text":["그러한 느낌이 내게 다가오고 있어요"]},
+            {"time": 24, "text":["내가 보는 모든 것이 경이롭군요"]},
+            {"time": 29, "text":["하늘에는 구름 한점 없고", "내 눈 안에 태양이 비치네요"]},
+            {"time": 34, "text":["이것이 꿈이라고 해도 놀라지 않을 겁니다"]},
+            {"time": 39, "text":["내가 원하는 대로 세상이 되고"]},
+            {"time": 44, "text":["특별히 나를 위해서 이제 실현되고 있어요"]},
+            {"time": 49, "text":["그 분명한 이유는 당신이 여기에 있기 때문이죠"]},
+            {"time": 54, "text":["당신은 내가 보아온 것 중 가장 하늘에 가까운 존재에요"]},
+            {"time": 59, "text":["난 세상 꼭대기에서 만물을 내려다보고 있어요"]},
+            {"time": 64, "text":["내가 찾을 수 있는 유일한 설명은"]},
+            {"time": 69, "text":["당신이 내 주위에 함께 한 이후 내가 발견한 사랑이죠"]},
+            {"time": 74, "text":["당신의 사랑이 날 세상 꼭대기에 올려놓은 거죠"]},
+            {"time": 85, "text":["바람 속 무언가가 내 이름을 알아내고 내게 말하네요"]},
+            {"time": 90, "text":["모든 건 똑같지 않다고 말해주네요"]},
+            {"time": 95, "text":["나무 위의 나뭇잎들 안에서 그리고 산들바람의 촉감에서"]},
+            {"time": 100, "text":["내게 만족스러운 행복을 안겨주네요"]},
+            {"time": 105, "text":["내 마음 속에 바라는 유일한 소원은"]},
+            {"time": 110, "text":["오늘이 다가도", "내가 찾기를 바라는 것은"]},
+            {"time": 115, "text":["당신과 나를 위해 변함없는 내일이 있다는 것이죠"]}
         ]
     }
 ]

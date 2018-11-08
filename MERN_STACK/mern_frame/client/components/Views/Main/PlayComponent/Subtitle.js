@@ -12,6 +12,7 @@ class SubTitle extends Component {
         this.onClickOpen = this.onClickOpen.bind(this);
         this.onClickScript = this.onClickScript.bind(this);
         this.setCheckbox = this.setCheckbox.bind(this);
+        this.getCheckbox = this.getCheckbox.bind(this);
         this.setShowAll = this.setShowAll.bind(this);
         this.onClickCheckbox = this.onClickCheckbox.bind(this);
         this.state = {
@@ -72,6 +73,9 @@ class SubTitle extends Component {
         this.setState(
             {checked:value}
         );
+    }
+    getCheckbox() {
+        return this.state.checked;
     }
     setShowAll(value) {
         const index = value ? this.state.list.length : 0;
