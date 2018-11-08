@@ -12,7 +12,9 @@ class SubtitleListView extends Component {
         }
         this.eventListener = this.eventListener.bind(this);
         this.onFocus = this.onFocus.bind(this);
+        this.getFocus = this.getFocus.bind(this);
         this.onCheckAll = this.onCheckAll.bind(this);
+        this.getNext = this.getNext.bind(this);
     }
     eventListener(time) {
         this.onFocus(time);
@@ -39,19 +41,39 @@ class SubtitleListView extends Component {
     componentDidMount() {
         this.state.index = -1;
     }
-    onFocus(time) {
-        var find = 0;
+    getFocus(time) {
+        var result = {change:false, checked:false, find:-1};
         for (var key in this.state.ref) {
             if(key <= time) {
-                find = key;
-            } else break;
+                result.find = key;
+            } else {
+                break;
+            }
         }
-        if(this.state.index != find) {
+        if(this.state.index != find && result.find != -1) {
+            result.change = true;
+            result.checked = this.state.ref[result.find].current.getCheckbox();
+        }
+        return result;
+    }
+    onFocus(find) {
+        if(this.state.index != find && find != -1) {
             if(this.state.index >= 0)
                 this.state.ref[this.state.index].current.focus(false);
             this.state.ref[find].current.focus(true);
             this.state.index = find;
         }
+    }
+    getNext(time) {
+        for (var key in this.state.ref) {
+            if(key > time) {
+                if(this.state.ref[key].current.getCheckbox()) {
+                    console.log(key + " : " + time);
+                    return key;
+                }
+            }
+        }
+        return -1;
     }
     onCheckAll(isShow) {
         var _this = this;

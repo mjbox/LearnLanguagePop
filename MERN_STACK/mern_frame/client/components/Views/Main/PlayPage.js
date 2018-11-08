@@ -13,7 +13,8 @@ class PlayPage extends Component {
       player : null,
       list : null,
       list_eng : null,
-      list_kor: null
+      list_kor: null,
+      repeat: 0
     };
     this.ScriptList = React.createRef();
     this.onTick = this.onTick.bind(this);
@@ -80,7 +81,20 @@ class PlayPage extends Component {
   }
   onTick() {
     if(this.state.player.getPlayerState() == 1) {
-      this.ScriptList.current.onFocus(this.state.player.getCurrentTime());
+      var time = this.state.player.getCurrentTime();
+
+      var result = this.ScriptList.current.getFocus(time);
+      if(this.state.repeat == 1 && result.change && !result.checked) // repeat checked
+      {
+        var next = this.ScriptList.current.getNext(time);
+        if(next < 0) next = this.ScriptList.current.getNext(0);
+        if(next >= 0) {
+          this.state.player.seekTo(next, true);
+          this.state.player.playVideo();
+        }
+      } else {
+        this.ScriptList.current.onFocus(result.find);
+      }
     }
     else 
     {
@@ -101,6 +115,20 @@ class PlayPage extends Component {
         break;
       case "speed":
         this.state.player.setPlaybackRate(e.param2);
+        break;
+      case "repeat":
+        this.state.repeat = e.param2;
+        switch(e.param2) {
+          case 0: // none
+            this.state.player.setLoop(false);
+            break;
+          case 1: // checked
+            this.state.player.setLoop(true);
+            break;
+          case 2: // all
+            this.state.player.setLoop(true);
+            break;
+        }
         break;
     }
   }
