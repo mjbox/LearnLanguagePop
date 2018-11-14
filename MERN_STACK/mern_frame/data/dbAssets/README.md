@@ -4,9 +4,12 @@
 https://velopert.com/436
 
 ## How to set up db
+- install homebrew (before install mongodb)
+  -  ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+  
 - install mongodb
   - sudo brew install mongodb
-  - sudo mkdir /data/db
+  - sudo mkdir -p /data/db
   - sudo mongod
 
 - go to right folder first
