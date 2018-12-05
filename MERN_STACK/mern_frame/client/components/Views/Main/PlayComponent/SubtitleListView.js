@@ -92,7 +92,7 @@ class SubtitleListView extends Component {
     render() {
         return (
             <div className="container">
-                <ul className="list-group text-center">
+                <ul className="list-group">
                     {this.makeList()}
                 </ul>
            </div>

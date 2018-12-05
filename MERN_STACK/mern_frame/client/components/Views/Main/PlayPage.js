@@ -136,7 +136,9 @@ class PlayPage extends Component {
   render() {
     return (
       <div>
-        <div id='player'></div>
+        <div className="player-wrap"> 
+          <div id="player"></div>
+        </div>
         <SubtitleListView ref={this.ScriptList} onEvent={this.onEventScript} list={this.state.list}/>
         <ControlMenu cb={this.onEventControl}/>
       </div>
