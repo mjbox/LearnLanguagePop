@@ -59,7 +59,10 @@ table {
     width: 100%;
     height: 100%;
 }
-
+.player-wrap > div {
+    width: 100% !important;
+    height: auto !important;
+}
 .list-group .item {
     display: table;
     table-layout: fixed;

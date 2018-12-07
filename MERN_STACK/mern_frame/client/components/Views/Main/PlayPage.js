@@ -69,7 +69,6 @@ class PlayPage extends Component {
     console.log('componentDidMount ' + this.props.match.params.name);
   }
   componentWillUnmount() {
-    console.log("componentWillUnmount");
     clearInterval(this.timer);
     this.state.player.stopVideo();
     this.state.player.destroy();

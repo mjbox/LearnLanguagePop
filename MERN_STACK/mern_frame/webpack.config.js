@@ -16,6 +16,14 @@ module.exports = {
   {
    test: /\.css$/,
    loader: "style-loader!css-loader"
+  },
+  {
+    test: /\.mp4$/,
+    loader: "url?limit=10000&mimetype=video/mp4"
+  },
+  {
+    test: /\.mp3$/,
+    loader: "url?limit=10000&mimetype=audio/mp3"
   }]
  },
  devServer: {

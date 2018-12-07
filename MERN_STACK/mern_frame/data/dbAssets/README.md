@@ -16,8 +16,8 @@ https://velopert.com/436
   - cd ./MERN_STACK
 
 - import db into your local mongodb server
-  - mongoimport --jsonArray  -d YoutubeContents -c scripts ./mern_frame/data/dbAssets/scripts.json
-  - mongoimport --jsonArray  -d YoutubeContents -c videos ./mern_frame/data/dbAssets/videos.json
+  - mongoimport --drop --jsonArray  -d YoutubeContents -c scripts ./mern_frame/data/dbAssets/scripts.json
+  - mongoimport --drop --jsonArray  -d YoutubeContents -c videos ./mern_frame/data/dbAssets/videos.json
 
 done.
 
