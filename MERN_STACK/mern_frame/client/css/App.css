@@ -86,7 +86,7 @@ table {
     font-family: Avenir, Arial, Helvetica, sans-serif;
 }
 
-.active{
-    color: red
+.list-group .item.active a{
+    color: red;
 }
 
