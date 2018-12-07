@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import '../css/App.css';
-import { BrowserRouter, Route, Switch} from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, Switch} from 'react-router-dom';
 import AppContainer from './AppContainer';
 
 class App extends Component {
@@ -10,9 +10,9 @@ class App extends Component {
     }
     render() {
         return (
-            <BrowserRouter>
+            <HashRouter>
                 <AppContainer/>
-            </BrowserRouter>
+            </HashRouter>
         )
     }
 }

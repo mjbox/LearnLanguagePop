@@ -27,7 +27,7 @@ class VideoManager {
                 'onStateChange': cbStateChange
             },
             playerVars: { 
-              'controls': 0,
+              'controls': 1,
               'rel': 0 
             }
           });

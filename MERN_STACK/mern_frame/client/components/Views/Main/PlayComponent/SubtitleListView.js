@@ -28,7 +28,6 @@ class SubtitleListView extends Component {
         if(this.props.list !== null) {
             var t = this.props.list.map((script) => {
                     this.state.ref[script.time] = React.createRef();
-                    console.log(script.time);
                 }
             );
 

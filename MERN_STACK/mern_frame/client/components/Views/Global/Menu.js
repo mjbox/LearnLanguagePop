@@ -7,7 +7,8 @@ const Menu = () => {
             <Link to="/" > Home |</Link>
             <Link to="/about" > About |</Link>
             <Link to="/create" > Create |</Link>
-            <Link to="/about?filter=top2&origin=im" > Test </Link>
+            <Link to="/about/test?filter=top2&origin=im" > Test1 |</Link>
+            <Link to="/test/big_buck_bunny.mp4?filter=local" > Test2 </Link>
             <hr/>
         </div>
     );
