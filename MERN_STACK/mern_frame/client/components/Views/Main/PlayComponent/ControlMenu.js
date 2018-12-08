@@ -58,8 +58,7 @@ class ControlMenu extends Component {
     }
     render() {
         return (
-            <div>
-                <hr/>
+            <div className="bottom-wrap">
                 <button cmd="check"     onClick={this.onclick}>{this.state.check}</button>
                 <button cmd="show"      onClick={this.onclick}>{this.state.show}</button>
                 <button cmd="language"  onClick={this.onclick}>{this.state.language}</button>

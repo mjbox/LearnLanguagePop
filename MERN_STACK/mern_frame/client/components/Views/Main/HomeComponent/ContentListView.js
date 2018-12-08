@@ -12,7 +12,7 @@ class ContentListView extends Component {
     makeList() {
         const listItems = this.props.list !== null ? this.props.list.map((link) =>
             <li key={link.id} align="left" >
-                <Link to={"/play/"+link.id+"?filter=top2&origin=im"} >
+                <Link to={"/play/"+link.id+"?type="+link.type+"&origin=im"} >
                     <img src={"http://img.youtube.com/vi/"+link.id+"/default.jpg"}/> 
                     {link.name}
                 </Link>
@@ -22,7 +22,7 @@ class ContentListView extends Component {
     }
     render() {
         return (
-            <div className="container">
+            <div className="content-wrap">
                 <ul className="list-group text-center">
                     {this.makeList()}
                 </ul>

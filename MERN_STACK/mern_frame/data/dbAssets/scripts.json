@@ -77,5 +77,22 @@
             {"time": 110, "text":["오늘이 다가도", "내가 찾기를 바라는 것은"]},
             {"time": 115, "text":["당신과 나를 위해 변함없는 내일이 있다는 것이죠"]}
         ]
+    },
+    {"videoid" : "big_buck_bunny.mp4", "script" :
+        [
+            {"time": 0, "text":["a", "b", "c"]},
+            {"time": 4, "text":["txt1", "txt2", "txt3"]},
+            {"time": 10, "text":["txt1", "txt2", "txt3"]},
+            {"time": 20, "text":["aaa", "bbb", "ccc"]},
+            {"time": 60, "text":["txt1", "txt2", "txt3"]}
+        ],
+        "script_kor": 
+        [
+            {"time": 0, "text":["a", "b", "c"]},
+            {"time": 4, "text":["가", "나", "다"]},
+            {"time": 10, "text":["가", "나", "다"]},
+            {"time": 20, "text":["가1", "나2", "다3"]},
+            {"time": 60, "text":["txt1", "txt2", "txt3"]}
+        ]
     }
 ]

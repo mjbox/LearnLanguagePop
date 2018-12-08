@@ -89,7 +89,7 @@ class SubTitle extends Component {
             <li className={this.state.style} index={this.state.index}  align="left" >
                 {/* <span className="time">{this.props.time + "  "}</span> */}
                 <span className="checkbox-cell">
-                    <input type="checkbox" onChange={this.onClickCheckbox} checked={this.state.checked}></input>
+                    <input type="checkbox" onChange={this.onClickCheckbox} checked={this.state.checked} />
                 </span>
                 <a className="text-cell" onClick={this.onClickScript}>
                     {this.makeList()}
