@@ -17,12 +17,12 @@ class AppContainer extends Component {
     return (
       <div>
         <Menu />
-        <Route exact path="/" component={HomePage}/>
-        <Route exact path="/about" component={About}/>
-        <Route exact path="/about/:name" component={About}/>
-        <Route exact path="/create" component={CreatePage}/>
-        <Route exact path="/play/:name" component={PlayPage}/>
-        <Route exact path="/test/:name" component={TestPage}/>
+          <Route exact path="/" component={HomePage}/>
+          <Route exact path="/about" component={About}/>
+          <Route exact path="/about/:name" component={About}/>
+          <Route exact path="/create" component={CreatePage}/>
+          <Route exact path="/play/:name" component={PlayPage}/>
+          <Route exact path="/test/:name" component={TestPage}/>
       </div>
     );
   }

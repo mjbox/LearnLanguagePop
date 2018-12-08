@@ -32,7 +32,7 @@ class SubtitleListView extends Component {
             );
 
             listItems = this.props.list.map((script) =>
-                    <SubTitle key={script.time} ref={this.state.ref[script.time]} onEvent={this.eventListener} time={script.time} list={script.text}/>
+                <SubTitle key={script.time} ref={this.state.ref[script.time]} onEvent={this.eventListener} time={script.time} list={script.text}/>
             );
         }
         return listItems;
@@ -90,7 +90,7 @@ class SubtitleListView extends Component {
     }
     render() {
         return (
-            <div className="container">
+            <div className="list-wrap">
                 <ul className="list-group">
                     {this.makeList()}
                 </ul>

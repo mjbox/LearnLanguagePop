@@ -27,7 +27,7 @@ class dbProcess {
         var result = [];
         dbLauncher.collection('videos').find().stream()
             .on('data', function(doc){
-                result.push({"id":doc.id, "name":doc.name});
+                result.push({"id":doc.id, "name":doc.name, "type":doc.type});
                 console.log(doc.name);
             })
             .on('error', function(err){
